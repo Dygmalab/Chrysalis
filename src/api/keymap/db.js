@@ -32,6 +32,8 @@ import ModifiersTable, {
 import NavigationTable, { ModifiedNavigationTables } from "./db/navigation";
 import LEDEffectsTable from "./db/ledeffects";
 import MacrosTable from "./db/macros";
+import SuperKeyTable from "./db/superkeys";
+import TapDanceTable from "./db/tapdance";
 import NumpadTable, { ModifiedNumpadTables } from "./db/numpad";
 import FunctionKeyTable, { ModifiedFunctionKeyTables } from "./db/fxs";
 
@@ -88,6 +90,8 @@ const defaultBaseKeyCodeTable = [
 
   LEDEffectsTable,
   MacrosTable,
+  SuperKeyTable,
+  TapDanceTable,
   MediaControlTable,
   MouseMovementTable,
   MouseButtonTable,
@@ -209,6 +213,13 @@ class KeymapDB {
     const answ = this.keymapCodeTable
       .filter(Boolean)
       .find(x => x.labels.primary === label);
+    return answ !== undefined ? answ.code : 1;
+  }
+
+  reverseSub(label, top) {
+    const answ = this.keymapCodeTable
+      .filter(Boolean)
+      .find(x => x.labels.primary === label && x.labels.top === top);
     return answ !== undefined ? answ.code : 1;
   }
 

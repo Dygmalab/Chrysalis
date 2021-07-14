@@ -34,6 +34,8 @@
     "react-i18next",
     "react-localization",
     "react-toastify",
-    "react-beautiful-dnd"
+    "react-beautiful-dnd",
+    "styled-components",
+    "react-bootstrap-range-slider"
   ]
 }
